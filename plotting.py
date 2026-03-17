@@ -65,6 +65,7 @@ def _plot_one_panel(ax, results_dict, T, title, xlabel="Round",
 def plot_fig2_hybucbar_scalability(results, K_list, T, save_path):
     fig, axes = plt.subplots(1, len(K_list), figsize=(4 * len(K_list), 3.5))
     fig.suptitle("HybUCB-AR: Scalability (Synthetic)", fontsize=12, fontweight="bold")
+    axes = np.atleast_1d(axes)  # ensure iterable when len(K_list)==1
 
     for ax, K in zip(axes, K_list):
         _plot_one_panel(ax, results[K], T, title=f"K={K}")
@@ -124,6 +125,7 @@ def plot_fig3_hybucbar_sensitivity(results, T, save_path):
 def plot_fig4_hybelimucbra_scalability(results, K_list, T, save_path):
     fig, axes = plt.subplots(1, len(K_list), figsize=(4 * len(K_list), 3.5))
     fig.suptitle("HybElimUCB-RA: Scalability (Synthetic)", fontsize=12, fontweight="bold")
+    axes = np.atleast_1d(axes)  # ensure iterable when len(K_list)==1
 
     for ax, K in zip(axes, K_list):
         _plot_one_panel(ax, results[K], T, title=f"K={K}")
